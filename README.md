@@ -28,6 +28,13 @@ xg loon --config-file=".xg.loon.config"
 ```
 
 ### Hooks
+default hook
+
+#### Custom Hook
+```shell
+xg loon --custom-hook
+```
+
 ```json
 {
   "config": {
@@ -41,7 +48,13 @@ xg loon --config-file=".xg.loon.config"
 }
 ```
 
-#### Built-In Hooks
+### Development
 ```shell
-xg loon --hooks-postinstall=klfe
+xg loon dev
+```
+config file: loon.config
+```json
+{
+  "dirname": "basic module dirname"
+}
 ```
