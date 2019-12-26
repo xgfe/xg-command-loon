@@ -1,5 +1,3 @@
-const version = require('./package.json').version;
-
 const cli = require('./cli');
 
 

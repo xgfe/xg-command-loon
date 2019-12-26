@@ -1,5 +1,5 @@
 # xg-command-loon
-xg loon pulgin
+xg-command-loon pulgin
 
 ## Usage
 ```shell
@@ -12,49 +12,55 @@ xg-command-loon
 ### Config
 > env -> remote -> file
 
-#### Environment Config
+- Environment Config
 ```shell
-XG_LOON="config" xg loon [--config-env="XG_LOON"]
+XG_LOON="config" xg-command-loon [--config-env="XG_LOON"]
 ```
-
-#### Remove Config
+- Remove Config
 ```shell
-XG_LOON_REMOTE="url" xg loon [--config-remote="XG_LOON_REMOTE"]
+XG_LOON_REMOTE="url" xg-command-loon [--config-remote="XG_LOON_REMOTE"]
 ```
-
-#### Local File Config
+- Local File Config
 ```shell
-xg loon --config-file=".xg.loon.config"
+xg-command-loon --config-file=".xg.loon.config"
 ```
 
 ### Hooks
 default hook
 
 #### Custom Hook
-```shell
-xg loon --custom-hook
-```
-
 ```json
 {
   "config": {
     "loon": {
       "scripts": {
         "preinstall": "./loon-preinstall-hooks.js",
-        "postinstall": "./loon-postinstall-hooks.js"
+        "postinstall": false
       }
     }
   }
 }
 ```
 
-### Development
+## Development
+### command
+#### demo
 ```shell
-xg loon dev
+xg-command-loon demo LOON_SIGN --basename=basename --tmpdir=tmpdir --port=8080 --framework=angular
 ```
-config file: loon.config
+
+#### dev
+```shell
+xg-command-loon dev --port=6000 --config=loon.config --tmpdir=tmpdir --framework=angular
+```
+
+### loon.config
 ```json
 {
-  "dirname": "basic module dirname"
+  "module_entry": "module_entry_dir_basename",
+  "module_dependencies": [
+    "module_dependency_a_dir_basename",
+    "module_dependency_b_dir_basename"
+  ]
 }
 ```
