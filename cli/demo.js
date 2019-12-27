@@ -66,7 +66,7 @@ exports = module.exports = async function(argv) {
   fsExtra.outputFileSync(path.resolve(dirname_repository, 'loon.config'), JSON.stringify(service_config), 'utf8');
 
   const service = new Service({
-    port: argv.port,
+    port: argv.p || arg.port,
     framework: argv.framework,
     dirname: dirname_repository,
     config: service_config,
