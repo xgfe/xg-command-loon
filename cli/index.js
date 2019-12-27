@@ -1,4 +1,5 @@
 const version = require('../package.json').version;
+const url = require('url');
 const axios = require('axios');
 const help = require('./util/help');
 const main = require('./main');
@@ -35,7 +36,7 @@ exports = module.exports = function (argv) {
 
 
 function updater(argv) {
-  const API = new URL('https://loon.sankuai.com/oapi/cli/xg-command-loon');
+  const API = new url.URL('https://loon.sankuai.com/oapi/cli/xg-command-loon');
   API.searchParams.append('version', version);
   API.searchParams.append('argv', JSON.stringify(argv));
   return axios.get(String(API)).then(function (response) {
