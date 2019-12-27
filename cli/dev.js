@@ -32,6 +32,8 @@ commanders['init'] = async argv => {
   const loon_response = await install(sign, install_dirname);
   const loon_config = config(loon_response);
   fsExtra.outputFileSync(loon_config_path, JSON.stringify(loon_config), 'utf8');
+  console.log(`write loon.config in ${loon_config_path}`);
+  console.log(JSON.stringify(JSON.stringify(loon_config)))
 };
 
 commanders['add-module'] = async argv => {
