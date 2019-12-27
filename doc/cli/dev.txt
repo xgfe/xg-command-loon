@@ -1,0 +1,20 @@
+Usage: dev [options]
+Usage: dev <command> [options]
+
+开发工具
+
+Options:
+  -p, --port   监听端口号
+                   [默认值:8080]
+  --config     配置文件路径
+                   [默认值:loon.config]
+  --tmpdir     临时文件夹
+                   [默认值:.loon.temporary]
+  --framework  构建运行框架
+                   [可选值: "angular", "hybrid"]
+  -h, --help
+
+Commands:
+  init <loon.sign|ssh.repository> 初始化
+  add-module  <ssh.repository>    添加模块
+  install-tools                   安装依赖工具(xg)

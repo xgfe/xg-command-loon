@@ -1,0 +1,18 @@
+
+Usage: xg-command-loon [options]
+Usage: xg-command-loon <command> [options]
+
+Options:
+  --config-env="XG_LOON"                      [XG_LOON="config"]
+  --config-remote="XG_LOON_REMOTE"            [XG_LOON_REMOTE="url"]
+  --config-file=".xg.loon.config"
+
+Commands:
+  dev [options] <loon-sign>
+  demo [options]
+
+CLI:
+  -v, --version
+  -h, --help
+
+  Run xg-command-loon <command> --help for detailed usage of given command.

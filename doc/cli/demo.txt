@@ -1,0 +1,10 @@
+Usage: demo [options] <loon-sign>
+
+run loon demo
+
+Options:
+  -p, --port       监听端口号
+                   [默认值:8080]
+  --framework  构建运行框架
+                   [可选值: "angular", "hybrid"]
+  -h, --help

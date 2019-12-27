@@ -43,24 +43,6 @@ default hook
 ```
 
 ## Development
-### command
-#### demo
 ```shell
-xg-command-loon demo LOON_SIGN --basename=basename --tmpdir=tmpdir --port=8080 --framework=angular
-```
-
-#### dev
-```shell
-xg-command-loon dev --port=6000 --config=loon.config --tmpdir=tmpdir --framework=angular
-```
-
-### loon.config
-```json
-{
-  "module_entry": "module_entry_dir_basename",
-  "module_dependencies": [
-    "module_dependency_a_dir_basename",
-    "module_dependency_b_dir_basename"
-  ]
-}
+xg-command-loon -h
 ```
