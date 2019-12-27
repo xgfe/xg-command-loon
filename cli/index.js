@@ -3,33 +3,53 @@ const axios = require('axios');
 const main = require('./main');
 const commanders = {
   dev: require('./dev'),
+  init: require('./init'),
   demo: require('./demo'),
 };
 
 exports = module.exports = function (argv) {
   return new Promise(function (resolve, reject) {
-    console.log('xg-command-loon version', version);
     const command = argv['_'][0];
-    if (argv.v || argv.version) {
-      return;
-    }
-    if (argv.h || argv.help) {
-      console.log('> xg-command-loon');
-      console.log('> xg-command-loon dev --port=6000 --config=loon.config --tmpdir=tmpdir --framework=angular');
-      console.log('> xg-command-loon demo LOON_SIGN --basename=basename --tmpdir=tmpdir --port=8080 --framework=angular');
-      return;
-    }
     if (command) {
-      resolve(updater(argv).then(function() {
+      return resolve(updater(argv).then(function() {
         if (typeof commanders[command] === 'function') {
           return commanders[command](argv);
         } else {
           throw new Error('invalid command ' + command);
         }
       }));
-    } else {
-      resolve(main(argv));
     }
+
+    if (argv.v || argv.version) {
+      return console.log(version);
+    }
+
+    if (argv.h || argv.help) {
+      console.log('xg-command-loon', version);
+      console.log();
+      console.log('Usage: xg-command-loon [options]');
+      console.log('Usage: xg-command-loon <command> [options]');
+      console.log();
+      console.log('Options:');
+      console.log('  --config-env="XG_LOON"                      [XG_LOON="config"]');
+      console.log('  --config-remote="XG_LOON_REMOTE"            [XG_LOON_REMOTE="url"]');
+      console.log('  --config-file=".xg.loon.config"');
+      console.log();
+      console.log('Commands:');
+      console.log('  dev [options] <loon-sign>');
+      console.log('  init [options]');
+      console.log('  demo [options]');
+      console.log();
+      console.log('CLI:');
+      console.log('  -v, --version');
+      console.log('  -h, --help');
+      console.log();
+      console.log('  Run xg-command-loon <command> --help for detailed usage of given command.');
+      console.log();
+      return;
+    }
+
+    resolve(main(argv));
   });
 };
 

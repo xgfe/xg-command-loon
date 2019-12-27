@@ -11,18 +11,28 @@ const Module = require('../lib/Module');
 const Service = require('../lib/Service');
 
 
-// xg loon demo LOON_SIGN --basename=basename --tmpdir=tmpdir --port=8080 --framework=angular
 exports = module.exports = async function(argv) {
+  if (argv.h || argv.help) {
+    console.log('Usage: demo [options] <loon-sign>');
+    console.log();
+    console.log('run loon demo');
+    console.log();
+    console.log('Options:');
+    console.log('  -p, --port       监听端口号');
+    console.log('                   [默认值:8080]');
+    console.log('  --framework  构建运行框架');
+    console.log('                   [可选值: "angular", "hybrid"]');
+    console.log('  -h, --help');
+    console.log();
+    return;
+  }
+
   console.log('=== Loon Project Demo ===');
 
   const sign = argv['_'][1];
   const oapi = `https://loon.sankuai.com/oapi/release/${sign}`;
-  const dirname = path.resolve(
-    argv.tmpdir || os.tmpdir(),
-    argv.basename || `${md5(`${sign}:${uuid()}`)}.loon.package`
-  );
-  const dirname_repository = path.resolve(dirname, 'loon.repository');
-  const dirname_service = path.resolve(dirname, 'loon.service');
+  const dirname = path.resolve(os.tmpdir(), `${md5(`${sign}:${uuid()}`)}.loon.package`);
+  const dirname_repository = dirname;
 
   fsExtra.removeSync(dirname_repository);
 
@@ -59,7 +69,6 @@ exports = module.exports = async function(argv) {
     port: argv.port,
     framework: argv.framework,
     dirname: dirname_repository,
-    tmpdir: dirname_service,
     config: service_config,
   });
   service.start();
