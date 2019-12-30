@@ -2,6 +2,7 @@ const fs = require('fs');
 const path = require('path');
 const axios = require('axios');
 const loon = require('../lib');
+const version = require('../package.json').version;
 
 
 // XG_LOON="config" xg loon --config-env="XG_LOON"
@@ -49,7 +50,7 @@ function getFileConfig(env_path) {
 }
 
 exports = module.exports = function (argv) {
-  return new Promise(function(resolve) {
+  return new Promise(resolve => {
     resolve();
   }).then(cfg => {
     return cfg || getEnvConfig(argv['config-env']);
@@ -72,6 +73,7 @@ exports = module.exports = function (argv) {
     }
     return config;
   }).then(config => {
+    console.log('xg-command-loon@v' + version);
     return loon({
       dirname: process.cwd(),
       project: {
