@@ -3,18 +3,16 @@ const url = require('url');
 const axios = require('axios');
 const help = require('./util/help');
 const main = require('./main');
-const commanders = {
-  dev: require('./dev'),
-  demo: require('./demo'),
-};
 
 exports = module.exports = function (argv) {
   return new Promise(function (resolve, reject) {
     const command = argv['_'][0];
     if (command) {
       return resolve(updater(argv).then(function() {
-        if (typeof commanders[command] === 'function') {
-          return commanders[command](argv);
+        const commanders = ['dev', 'demo'];
+        const validCommand = commanders.indexOf(command) > -1;
+        if (validCommand) {
+          return require(`./${command}`)(argv);
         } else {
           throw new Error('invalid command ' + command);
         }
