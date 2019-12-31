@@ -1,6 +1,6 @@
 {
   "name": "xg-command-loon",
-  "version": "0.5.11",
+  "version": "0.5.12",
   "description": "xg loon pulgin",
   "main": "index.js",
   "bin": {
