@@ -1,12 +1,12 @@
-# xg-command-loon
-xg-command-loon pulgin
+# xg loon
+xg loon pulgin
 
 ## Usage
 ```shell
 cd $project_dir
 xg loon
 # or
-xg-command-loon
+xg loon
 ```
 
 ### Config
@@ -14,15 +14,15 @@ xg-command-loon
 
 - Environment Config
 ```shell
-XG_LOON="config" xg-command-loon [--config-env="XG_LOON"]
+XG_LOON="config" xg loon [--config-env="XG_LOON"]
 ```
 - Remove Config
 ```shell
-XG_LOON_REMOTE="url" xg-command-loon [--config-remote="XG_LOON_REMOTE"]
+XG_LOON_REMOTE="url" xg loon [--config-remote="XG_LOON_REMOTE"]
 ```
 - Local File Config
 ```shell
-xg-command-loon --config-file=".xg.loon.config"
+xg loon --config-file=".xg.loon.config"
 ```
 
 ### Hooks
@@ -44,5 +44,5 @@ default hook
 
 ## Development
 ```shell
-xg-command-loon -h
+xg loon -h
 ```
