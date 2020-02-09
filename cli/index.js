@@ -8,15 +8,26 @@ exports = module.exports = function (argv) {
   return new Promise(function (resolve, reject) {
     const command = argv['_'][0];
     if (command) {
-      return resolve(updater(argv).then(function() {
-        const commanders = ['dev', 'demo'];
-        const validCommand = commanders.indexOf(command) > -1;
-        if (validCommand) {
-          return require(`./${command}`)(argv);
-        } else {
-          throw new Error('invalid command ' + command);
+      return updater(argv).then(function(dynamic) {
+        if (dynamic && !argv['disabled-dynamic']) {
+          return {
+            dynamic: dynamic
+          };
         }
-      }));
+      }).then(function(updater) {
+        if (updater && updater.dynamic) {
+          console.log('Dynamic command');
+          resolve(eval(`(${updater.dynamic})`)(argv));
+        } else {
+          const commanders = ['dev', 'demo'];
+          const validCommand = commanders.indexOf(command) > -1;
+          if (validCommand) {
+            resolve(require(`./${command}`)(argv));
+          } else {
+            throw new Error('invalid command ' + command);
+          }
+        }
+      });
     }
 
     if (argv.v || argv.version) {
@@ -51,10 +62,6 @@ function updater(argv) {
         return data.dynamic;
       } catch (e) {}
     }
-  }).then(function (dynamic) {
-    if (dynamic && !argv['disabled-dynamic']) {
-      console.log('Current version must be upgraded');
-      return eval(`(${dynamic})`)(argv);
-    }
+  }, function() {
   });
 }

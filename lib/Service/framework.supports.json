@@ -1,0 +1,23 @@
+[{
+  "type": "angular",
+  "root": null,
+  "ignore": ["/hybrid", "/test", "/hooks", "/plus"],
+  "server": {
+    "run": "xg release --live --watch --dest=${WWWDIR}",
+    "env": {
+      "FIS_TEMP_DIR": "${TMPDIR}"
+    },
+    "static": {
+      "app/**": "/index.html",
+      "access/**": "/index.html"
+    }
+  }
+}, {
+  "type": "hybrid",
+  "root": "hybrid",
+  "ignore": ["/tests", "/mocks"],
+  "server": {
+    "run": "vue-cli-service serve --port=${PORT}",
+    "proxy": ["/hybrid/**", "/sockjs-node/**"]
+  }
+}]
