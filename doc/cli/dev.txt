@@ -4,14 +4,16 @@ Usage: dev <command> [options]
 开发工具
 
 Options:
-  -p, --port   监听端口号
-                   [默认值:8080]
-  --config     配置文件路径
-                   [默认值:loon.config]
-  --tmpdir     临时文件夹
-                   [默认值:.loon.temporary]
-  --framework  构建运行框架
-                   [可选值: "angular", "hybrid"]
+  -p, --port              监听端口号
+                              [默认值:可用端口(随机)]
+  --config                配置文件路径
+                              [默认值:loon.config]
+  --tmpdir                临时文件夹
+                              [默认值:.loon.temporary]
+  --framework             构建运行框架
+                              [可选值: "angular", "hybrid"]
+  --framework-procedure   处理流程(","分割)
+                              [可选值: "sync,install,compile,serve"]
   -h, --help
 
 Commands:

@@ -25,6 +25,7 @@
   "homepage": "https://github.com/xgfe/xg-command-loon#readme",
   "dependencies": {
     "axios": "^0.19.0",
+    "blessed": "^0.1.81",
     "chokidar": "^3.3.1",
     "co-body": "^6.0.0",
     "ejs": "^2.6.2",

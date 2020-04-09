@@ -4,7 +4,7 @@ run loon demo
 
 Options:
   -p, --port       监听端口号
-                   [默认值:8080]
+                   [默认值:可用端口(随机)]
   --framework  构建运行框架
                    [可选值: "angular", "hybrid"]
   -h, --help

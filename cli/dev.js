@@ -93,7 +93,6 @@ exports = module.exports = function(argv) {
     return commanders[command](argv);
   }
 
-  console.log('=== Development Mode ===');
   const cwd = process.cwd();
   const loon_config_path = path.resolve(cwd, argv.config || 'loon.config');
   const config = () => fsExtra.readJSONSync(loon_config_path);
@@ -102,6 +101,10 @@ exports = module.exports = function(argv) {
     dirname: cwd,
     config: config(),
     framework: argv.framework,
+    frameworkProcedure: (argv['framework-procedure']
+      ? String(argv['framework-procedure']).split(',')
+      : []
+    ),
     tmpdir: argv.tmpdir ? path.resolve(cwd, argv.tmpdir) : null,
   });
   chokidar.watch(loon_config_path).on('all', () => service.configurate(config()));

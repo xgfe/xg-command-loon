@@ -2,11 +2,8 @@
   "type": "angular",
   "root": null,
   "ignore": ["/hybrid", "/test", "/hooks", "/plus"],
+  "compile": "FIS_TEMP_DIR=${TMPDIR} xg release --live --watch --dest=${WWWDIR}",
   "server": {
-    "run": "xg release --live --watch --dest=${WWWDIR}",
-    "env": {
-      "FIS_TEMP_DIR": "${TMPDIR}"
-    },
     "static": {
       "app/**": "/index.html",
       "access/**": "/index.html"
@@ -16,8 +13,8 @@
   "type": "hybrid",
   "root": "hybrid",
   "ignore": ["/tests", "/mocks"],
+  "compile": "vue-cli-service serve --port=${PORT}",
   "server": {
-    "run": "vue-cli-service serve --port=${PORT}",
     "proxy": ["/hybrid/**", "/sockjs-node/**"]
   }
 }]
