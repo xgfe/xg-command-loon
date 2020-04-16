@@ -1,6 +1,11 @@
-Usage: demo [options] <loon-sign>
+Usage: demo [options] <sign>
 
 run loon demo
+
+Sign:
+  - loon.sign
+  - loon.config.url
+  - ssh.repository
 
 Options:
   -p, --port       监听端口号

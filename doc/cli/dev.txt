@@ -17,6 +17,6 @@ Options:
   -h, --help
 
 Commands:
-  init <loon.sign|ssh.repository> 初始化
-  add-module  <ssh.repository>    添加模块
-  install-tools                   安装依赖工具(xg)
+  init <sign>        初始化(loon.sign|loon.config.url|ssh.repository)
+  add-module         添加模块
+  install-tools      安装依赖工具(xg)
