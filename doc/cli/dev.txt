@@ -14,9 +14,14 @@ Options:
                               [可选值: "angular", "hybrid"]
   --framework-procedure   处理流程(","分割)
                               [可选值: "sync,install,compile,serve"]
-  -h, --help
+  -h, --help              查看帮助
+                              [可选值: "config"]
 
 Commands:
   init <sign>        初始化(loon.sign|loon.config.url|ssh.repository)
   add-module         添加模块
   install-tools      安装依赖工具(xg)
+
+Environment:
+  LOG_VERBOSITY           日志显示方式
+                              [可选值: "dashboard"]

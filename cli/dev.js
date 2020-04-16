@@ -25,7 +25,7 @@ commanders['install-tools'] = async argv => {
 
 exports = module.exports = function(argv) {
   if (argv.h || argv.help) {
-    return help('dev');
+    return help('dev', argv.h || argv.help);
   }
   const command = argv['_'][1];
   if (command) {

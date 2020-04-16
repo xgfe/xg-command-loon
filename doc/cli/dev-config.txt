@@ -1,0 +1,16 @@
+
+loon.config: {
+    "module_entry": "value",      // 入口模块，
+                                        [必填值: "moduleName", { "name": "moduleName", "dirname": "moduleDirname"}]
+    "module_dependencies": [],    // 子模块
+                                        [可选值: "moduleName", { "name": "moduleName", "dirname": "moduleDirname"}]
+    "proxy": {                    // 代理配置
+      "server": "",               // 默认服务器
+      "config": {},               // 转发规则
+                                        [可选值：参见http-proxy-middleware]
+      "mock": []                  // 转发规则，匹配命中走转发规则
+                                        [可选值：参见micromatch]
+    },
+    "_sync_ignore": []          // 非正式功能 - 忽略同步文件
+                                        [可选值：文件路径(字符串匹配)]
+}
