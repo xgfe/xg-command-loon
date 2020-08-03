@@ -24,4 +24,4 @@ Commands:
 
 Environment:
   LOG_VERBOSITY           日志显示方式
-                              [可选值: "dashboard"]
+                              [可选值: "normal", "debug", "dashboard"]
